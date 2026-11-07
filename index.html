@@ -17,8 +17,9 @@
   box-sizing:border-box;
 }
 *,*::before,*::after{box-sizing:inherit}
-html,body{height:100%;margin:0}
-body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);animation:fadein 1.6s var(--ease) both}
+html,body{margin:0}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{overflow-x:hidden;background:#fff;color:var(--ink);font-family:var(--sans);animation:fadein 1.6s var(--ease) both}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 @keyframes appear{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
 @keyframes ch{to{opacity:1;filter:none;transform:none}}
@@ -26,7 +27,7 @@ body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);an
 @keyframes kin{to{opacity:1}}
 @keyframes glint{0%,14%,100%{box-shadow:inset 0 -16px 20px rgba(230,211,174,0)}7%{box-shadow:inset 0 -16px 20px rgba(230,211,174,.6)}}
 
-.stage{position:fixed;inset:0;overflow:hidden;z-index:1}
+.stage{position:relative;height:100vh;height:100svh;overflow:visible;overflow-x:clip;z-index:1}
 .in{opacity:0;animation:appear 1.8s var(--ease) var(--dl,0s) forwards}
 
 /* header / footer chrome */
@@ -89,7 +90,6 @@ body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);an
 /* 追加した文字のアニメーション用スタイル（少し遅れて表示） */
 #sub-guidance{margin:0;min-height:1.4em;max-width:88cqw;text-align:center;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:max(9.5px,3.0cqw);letter-spacing:.08em;color:#c29c66;}
 #sub-guidance .ch{--d:5.4s}
-
 .go{position:absolute;z-index:4;right:-8.5cqw;top:50%;width:17cqw;aspect-ratio:1;padding:0;border:0;border-radius:50%;cursor:pointer;
   background:var(--maple);color:#fff;display:flex;align-items:center;justify-content:center;
   box-shadow:0 14px 28px rgba(162,58,27,.35);transform:translateY(-50%) rotate(8deg);
@@ -107,6 +107,41 @@ body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);an
   animation:ch 1.8s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + var(--d))}
 .vt h1 .ch{--d:3s}
 #dt .ch{--d:5s}
+
+/* scroll hint */
+.scrollhint{position:absolute;z-index:6;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 2.2vh);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 14px;border:0;background:none;cursor:pointer;
+  font-family:var(--sans);font-weight:500;font-size:clamp(10px,.8vw,12px);letter-spacing:.3em;color:var(--ink)}
+.scrollhint i{display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* message card (scroll) */
+.msg{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:clamp(110px,18vh,200px) 18px clamp(72px,12vh,140px);overflow:hidden;background:transparent}
+.m1{left:-9%;top:16%;width:26%;height:44%;z-index:1;overflow:hidden;background:linear-gradient(160deg,#fff3e2,#fde0c4)}
+.m2{right:-7%;bottom:-5%;width:24%;height:40%;z-index:1;background:#eeecee;box-shadow:none}
+.m3{left:88%;top:16%;--d:clamp(80px,10vw,190px);--sh:rgba(240,150,90,.45);background:radial-gradient(circle at 35% 30%,#fff1e0,#f9c59b 75%)}
+.m4{left:11%;top:84%;--d:clamp(56px,6.5vw,120px);--sh:rgba(230,190,90,.45);background:radial-gradient(circle at 35% 30%,#fff8e4,#f3dd9c 80%)}
+.dot.fl{animation:float 9s ease-in-out infinite}
+.mcard{position:relative;z-index:3;width:min(640px,100%);padding:clamp(40px,6vw,68px) clamp(28px,6vw,64px);
+  border-radius:clamp(22px,2.6vw,44px);background:linear-gradient(165deg,#fffdf8,#fbf3e1);
+  box-shadow:0 40px 90px rgba(200,160,110,.22),0 0 0 1px var(--gold2)}
+.mcard::before{content:"";position:absolute;inset:12px;border:1px solid var(--gold);border-radius:calc(clamp(22px,2.6vw,44px) - 10px);opacity:.6;pointer-events:none}
+.mlabel{margin:0;text-align:center;font-family:"Great Vibes","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;
+  font-size:clamp(32px,5vw,46px);line-height:1.1;color:var(--sub)}
+.mcard h2{margin:.2em 0 0;text-align:center;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  font-weight:700;font-size:clamp(19px,3.4vw,28px);letter-spacing:.1em;line-height:1.6}
+.morn{display:flex;align-items:center;justify-content:center;gap:12px;margin:1.4em 0 2em}
+.morn i{display:block;height:1px;width:clamp(44px,12vw,90px);background:linear-gradient(90deg,transparent,var(--gold))}
+.morn i:last-child{background:linear-gradient(270deg,transparent,var(--gold))}
+.morn b{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.mtext p{margin:0 0 1.8em;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;
+  font-size:clamp(14.5px,calc(12px + .5vw),18px);line-height:2.15;letter-spacing:.06em;color:#3d3544;text-align:left}
+.mtext span{display:inline-block;word-break:auto-phrase;text-wrap:pretty}
+.mtext p.mend{margin:2.4em 0 0;text-align:center;font-weight:700;font-size:clamp(15px,2vw,19px);letter-spacing:.14em;color:var(--sub)}
+.rv{opacity:0;transform:translateY(16px);filter:blur(4px);
+  transition:opacity 1.4s var(--ease) var(--rd,0s),transform 1.4s var(--ease) var(--rd,0s),filter 1.4s var(--ease) var(--rd,0s)}
+.rv.show{opacity:1;transform:none;filter:none}
 
 /* leaves */
 #fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:4;pointer-events:none;opacity:0;animation:fadein 3s var(--ease) 1s forwards}
@@ -126,12 +161,17 @@ body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);an
   .d2{left:18%;top:16%;--d:17vw}
   .d3{left:74%;top:86%;--d:38vw}
   .foot{display:none}
+  .m1{left:-20%;top:12%;width:44%;height:26%}
+  .m2{right:-18%;bottom:-3%;width:46%;height:22%}
+  .m3{left:90%;top:9%;--d:22vw}
+  .m4{left:9%;top:92%;--d:15vw}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important}
   .in,.wk,.bk{opacity:1;filter:none}
   .ch{opacity:1;filter:none;transform:none}
   #fx{display:none}
+  .rv{opacity:1;transform:none;filter:none;transition:none}
 }
 </style>
 </head>
@@ -186,7 +226,31 @@ body{overflow:hidden;background:#fff;color:var(--ink);font-family:var(--sans);an
 
   <div class="vt"><h1 id="t1">るな誕生日おめでとう！</h1><p id="dt">2026/11/15</p></div>
   <p class="foot in" style="--dl:1.6s"><b></b><small>© 2026 runa</small></p>
+  <button type="button" class="scrollhint in" id="sh" style="--dl:6s" aria-label="メッセージカードへスクロール"><span></span><i></i></button>
 </div>
+
+<section class="msg" id="message" aria-label="メッセージカード">
+  <div class="card m1" aria-hidden="true">
+    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:70%;left:14%;top:10%;color:#fbc58f;--r:-16deg"><use href="#lp"/></svg>
+    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:52%;left:40%;top:56%;color:#f6a679;--r:34deg"><use href="#lp"/></svg>
+  </div>
+  <div class="card m2" aria-hidden="true"></div>
+  <div class="dot m3 fl" aria-hidden="true"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e0662b;--r:16deg"><use href="#lp"/></svg></div>
+  <div class="dot m4 fl" aria-hidden="true"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e7a92f;--r:-20deg"><use href="#lp"/></svg></div>
+
+  <article class="mcard rv">
+    <p class="mlabel rv">Message</p>
+    <h2 class="rv">21歳のお誕生日おめでとう</h2>
+    <div class="morn rv" aria-hidden="true"><i></i><b></b><i></i></div>
+    <div class="mtext">
+      <p class="rv"><span>今回ピアノでカバーした曲「生命（いのち）の奇跡」は元々、英国の少年合唱団リベラ（Libera）の曲で「すべてが生命の奇跡の中に」という意味が込められています。</span></p>
+      <p class="rv"><span>るなが生まれてきてくれて、自分と今こうして一緒にいてくれることに感謝してこの曲を選びました。</span></p>
+      <p class="rv"><span>自分が作る音色が大好きだって言ってくれたことがすごく嬉しくて、るなに聴かせるようになってからピアノがもっと好きになりました。</span></p>
+      <p class="rv"><span>いつまでも好きって言ってもらえるように頑張ります。</span></p>
+      <p class="rv">これからもよろしくね。</p>
+    </div>
+  </article>
+</section>
 
 <!-- ============================================================
      ★ 設定（ここだけ書き換えればOK）
@@ -250,7 +314,7 @@ var CONFIG = {
   }
   function press(b){
     tone(+b.dataset.f); b.classList.add("down");
-    var now = Date.now(); if (now - lastDl < 4000) return; lastDl = now;    // 連打でも4秒に1回だけ保存
+    var now = Date.now(); if (now - lastDl < 4000) return; lastDl = now;   // 連打でも4秒に1回だけ保存
     if (!C.AUDIO_FILE) { say("音源ファイルが未設定です"); return; }
     var a = document.createElement("a");
     a.href = C.AUDIO_FILE; a.download = C.AUDIO_NAME || "";
@@ -269,6 +333,22 @@ var CONFIG = {
   go.addEventListener("click", function(){ press(go); setTimeout(function(){ go.classList.remove("down"); }, 220); });
   document.addEventListener("pointerup", releaseAll);
   document.addEventListener("pointercancel", releaseAll);
+
+  /* ---------- message card (scroll) ---------- */
+  var sh = document.getElementById("sh");
+  if (sh) sh.addEventListener("click", function(){
+    var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.getElementById("message").scrollIntoView({behavior: calm ? "auto" : "smooth", block: "start"});
+  });
+  var rv = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } });
+    }, {threshold: .15});
+    rv.forEach(function(el, i){ el.style.setProperty("--rd", (i % 5)*.12 + "s"); io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add("show"); });
+  }
 
   /* ---------- autumn leaves (depth layers) ---------- */
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
