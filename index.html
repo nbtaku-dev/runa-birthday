@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>るなの誕生日おめでとう！</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#4a4350; --gold:#bfa070; --gold2:#e6d3ae; --blush:#f7e8ec;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;height:100%;min-height:100vh;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 45%,#ffffff 0%,#fffdfc 45%,#faf5f3 100%);
+  color:var(--ink);
+  font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  display:flex;align-items:center;justify-content:center;
+  animation:fadein 2s var(--ease) both;
+}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+main{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:clamp(22px,5vh,44px);padding:24px;text-align:center}
+
+h1{margin:0;font-size:clamp(21px,5.6vw,38px);letter-spacing:.14em;line-height:1.6;font-weight:700;text-shadow:0 0 10px #fff}
+.ch{display:inline-block;opacity:0;filter:blur(5px);transform:translateY(6px);
+  animation:ch 1.8s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + var(--d))}
+h1 .ch{--d:3s}
+#lab .ch{--d:4.8s}
+@keyframes ch{to{opacity:1;filter:none;transform:none}}
+
+/* gold ornament */
+.orn{display:flex;align-items:center;gap:12px;justify-content:center;width:100%}
+.orn i{display:block;height:1px;width:0;background:linear-gradient(90deg,transparent,var(--gold));animation:line 2.4s var(--ease) 2.6s forwards}
+.orn i:last-child{background:linear-gradient(270deg,transparent,var(--gold))}
+.orn b{width:6px;height:6px;background:var(--gold);transform:rotate(45deg) scale(0);animation:dia 1.2s var(--ease) 2.6s forwards}
+@keyframes line{to{width:clamp(50px,16vw,110px)}}
+@keyframes dia{to{transform:rotate(45deg) scale(1)}}
+
+/* card (double gold frame) */
+.card{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,3vh,24px);
+  padding:clamp(24px,5vw,34px) clamp(22px,6vw,44px);background:#fff;max-width:92vw;
+  opacity:0;animation:cardin 2.4s var(--ease) .6s forwards, breathe 6s ease-in-out 3.2s infinite}
+@keyframes cardin{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{box-shadow:0 10px 50px rgba(230,211,174,.25)}50%{box-shadow:0 10px 70px rgba(230,211,174,.6)}}
+.card::before,.card::after{content:"";position:absolute;border:1px solid var(--gold);pointer-events:none;opacity:0}
+.card::before{inset:-10px;animation:frame 2.6s var(--ease) 1.4s forwards}
+.card::after{inset:-1px;border-color:var(--gold2);animation:frame2 2.6s var(--ease) 1.8s forwards}
+@keyframes frame{from{opacity:0;inset:-26px}to{opacity:1;inset:-10px}}
+@keyframes frame2{from{opacity:0;inset:-14px}to{opacity:.9;inset:-1px}}
+
+/* piano keyboard (press a key = download) */
+.kb{position:relative;display:flex;width:clamp(220px,64vw,330px);height:clamp(110px,30vw,150px);
+  border-top:3px solid var(--gold2);border-radius:3px 3px 0 0}
+.wk{flex:1;position:relative;padding:0;margin:0 0 0 -1px;cursor:pointer;
+  border:1px solid var(--gold2);border-top:none;border-radius:0 0 7px 7px;
+  background:linear-gradient(#fff 0%,#faf6f3 80%,#efe7e2 100%);
+  opacity:0;animation:kin 1.4s var(--ease) forwards, glint 8s ease-in-out infinite;
+  animation-delay:calc(var(--k)*90ms + 2.6s), calc(var(--k)*160ms + 5.5s);
+  transition:background .25s,transform .15s;-webkit-tap-highlight-color:transparent}
+.wk:first-child{margin-left:0}
+.bk{position:absolute;top:0;width:8.57%;height:62%;left:calc(var(--p)*14.2857% - 4.2857%);z-index:2;
+  padding:0;border:0;border-radius:0 0 5px 5px;cursor:pointer;
+  background:linear-gradient(#5e5666,#2f2a35);box-shadow:0 3px 6px rgba(60,50,70,.3);
+  opacity:0;animation:kin 1.4s var(--ease) forwards;animation-delay:calc(var(--p)*90ms + 3s);
+  transition:background .25s,transform .15s;-webkit-tap-highlight-color:transparent}
+.wk.down{background:linear-gradient(#f3e3d8,#ecdccd);transform:translateY(2px)}
+.bk.down{background:linear-gradient(#4a4252,#26212b);transform:translateY(1.5px)}
+.wk:focus-visible,.bk:focus-visible{outline:2px solid var(--gold);outline-offset:-3px;z-index:3}
+@keyframes kin{to{opacity:1}}
+@keyframes glint{0%,14%,100%{box-shadow:inset 0 -16px 20px rgba(230,211,174,0)}7%{box-shadow:inset 0 -16px 20px rgba(230,211,174,.6)}}
+
+#lab{margin:0;min-height:1.6em;max-width:100%;text-align:center;font-size:clamp(13px,3.6vw,20px);
+  letter-spacing:.16em;color:#a8885a;transition:opacity .3s}
+
+/* leaves canvas */
+#fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;
+  animation:fadein 3s var(--ease) 1s forwards}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important}
+  .ch,.card,.card::before,.card::after,.wk,.bk{opacity:1;filter:none;transform:none}
+  .card::before{inset:-10px}.card::after{inset:-1px}
+  .orn i{width:80px}.orn b{transform:rotate(45deg)}
+  #fx{display:none}
+}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <h1 id="t1">るなの誕生日おめでとう！</h1>
+  <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
+  <div class="card">
+    <div class="kb" id="kb" role="group" aria-label="鍵盤を押すと音源をダウンロード" title="鍵盤を押すと音源をダウンロード">
+      <button type="button" class="wk" style="--k:0" data-f="261.63" aria-label="ド"></button>
+      <button type="button" class="wk" style="--k:1" data-f="293.66" aria-label="レ"></button>
+      <button type="button" class="wk" style="--k:2" data-f="329.63" aria-label="ミ"></button>
+      <button type="button" class="wk" style="--k:3" data-f="349.23" aria-label="ファ"></button>
+      <button type="button" class="wk" style="--k:4" data-f="392.00" aria-label="ソ"></button>
+      <button type="button" class="wk" style="--k:5" data-f="440.00" aria-label="ラ"></button>
+      <button type="button" class="wk" style="--k:6" data-f="493.88" aria-label="シ"></button>
+      <button type="button" class="bk" style="--p:1" data-f="277.18" aria-label="ド＃"></button>
+      <button type="button" class="bk" style="--p:2" data-f="311.13" aria-label="レ＃"></button>
+      <button type="button" class="bk" style="--p:4" data-f="369.99" aria-label="ファ＃"></button>
+      <button type="button" class="bk" style="--p:5" data-f="415.30" aria-label="ソ＃"></button>
+      <button type="button" class="bk" style="--p:6" data-f="466.16" aria-label="ラ＃"></button>
+    </div>
+    <p id="lab">生命の奇跡Birthday Ver.</p>
+  </div>
+</main>
+
+<!-- ============================================================
+     ★ 設定（ここだけ書き換えればOK）
+     ★ 音源を差し替える／追加するときは AUDIO_FILE と AUDIO_NAME を変更
+     ============================================================ -->
+<script>
+var CONFIG = {
+  TITLE:        "るなの誕生日おめでとう！",     // 上の文字
+  SUBTITLE:     "生命の奇跡Birthday Ver.",       // 鍵盤の下の文字
+  AUDIO_FILE:   "./グット・ドクター(アレンジ).m4a",                  // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
+  AUDIO_NAME:   "グット・ドクター(アレンジ).m4a",                  // ★ダウンロード時に付くファイル名
+  PILE_PER_MIN: 0.05,                            // 1分で画面の何割まで積もるか（0.05 = 2分で1割）
+  PILE_MAX:     0.3                              // 積もる上限（画面の高さに対する割合）
+};
+</script>
+
+<script>
+(function(){
+  var C = CONFIG, R = Math.random;
+
+  /* ---------- text ---------- */
+  function split(id, text){
+    var el = document.getElementById(id);
+    el.textContent = ""; el.setAttribute("aria-label", text);
+    Array.from(text).forEach(function(ch, i){
+      var s = document.createElement("span");
+      s.className = "ch"; s.style.setProperty("--i", i);
+      s.setAttribute("aria-hidden", "true"); s.textContent = ch;
+      el.appendChild(s);
+    });
+  }
+  split("t1", C.TITLE); split("lab", C.SUBTITLE);
+  document.title = C.TITLE;
+
+  /* ---------- piano keys ---------- */
+  var kb = document.getElementById("kb"), lab = document.getElementById("lab"), tm, lastDl = 0, ac;
+
+  function tone(f){
+    try{
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      var n = ac.currentTime, g = ac.createGain();
+      g.gain.setValueAtTime(.0001, n);
+      g.gain.exponentialRampToValueAtTime(.12, n + .01);
+      g.gain.exponentialRampToValueAtTime(.0001, n + 1.6);
+      g.connect(ac.destination);
+      [["triangle", f, 1], ["sine", f*2, .35]].forEach(function(p){
+        var o = ac.createOscillator(), v = ac.createGain();
+        o.type = p[0]; o.frequency.value = p[1]; v.gain.value = p[2];
+        o.connect(v); v.connect(g); o.start(n); o.stop(n + 1.7);
+      });
+    }catch(e){}
+  }
+  function say(msg){
+    clearTimeout(tm); lab.style.opacity = 0;
+    setTimeout(function(){ lab.textContent = msg; lab.style.opacity = 1; }, 300);
+    tm = setTimeout(function(){
+      lab.style.opacity = 0;
+      setTimeout(function(){ lab.textContent = C.SUBTITLE; lab.style.opacity = 1; }, 300);
+    }, 3600);
+  }
+  function press(b){
+    tone(+b.dataset.f); b.classList.add("down");
+    var now = Date.now(); if (now - lastDl < 4000) return; lastDl = now;   // 連打でも4秒に1回だけ保存
+    if (!C.AUDIO_FILE) { say("音源ファイルが未設定です"); return; }
+    var a = document.createElement("a");
+    a.href = C.AUDIO_FILE; a.download = C.AUDIO_NAME || "";
+    document.body.appendChild(a); a.click(); a.remove();
+    say("ダウンロードを開始しました");
+  }
+  function releaseAll(){ kb.querySelectorAll(".down").forEach(function(b){ b.classList.remove("down"); }); }
+  kb.addEventListener("pointerdown", function(e){ var b = e.target.closest("button"); if (b) { e.preventDefault(); press(b); } });
+  kb.addEventListener("keydown", function(e){
+    var b = e.target.closest("button");
+    if (b && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); if (!e.repeat) press(b); }
+  });
+  kb.addEventListener("keyup", releaseAll);
+  kb.addEventListener("click", function(e){ e.preventDefault(); });
+  document.addEventListener("pointerup", releaseAll);
+  document.addEventListener("pointercancel", releaseAll);
+
+  /* ---------- autumn leaves (depth layers) ---------- */
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var cv = document.getElementById("fx"), ctx = cv.getContext("2d");
+  var W, H, pile = null, pctx, leaves = [], elapsed = 0, last = 0, lvl = 0, BACK = 40;
+
+  function sprite(c1, c2){
+    var S = 64, c = document.createElement("canvas"); c.width = c.height = S;
+    var g = c.getContext("2d");
+    var pts = [[0,1],[30,.5],[58,.95],[88,.46],[115,.76],[146,.4],[180,.28]], poly = [];
+    pts.forEach(function(p){ var a = p[0]*Math.PI/180; poly.push([p[1]*Math.sin(a), -p[1]*Math.cos(a)]); });
+    for (var i = pts.length - 2; i > 0; i--) poly.push([-poly[i][0], poly[i][1]]);
+    g.translate(S/2, S/2); g.scale(S*.46, S*.46); g.translate(0, .36);
+    g.beginPath();
+    poly.forEach(function(p, i){ i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]); });
+    g.closePath();
+    var gr = g.createRadialGradient(0, -.2, .05, 0, -.2, 1);
+    gr.addColorStop(0, c1); gr.addColorStop(1, c2);
+    g.fillStyle = gr; g.fill();
+    g.lineJoin = "round"; g.lineWidth = .07; g.strokeStyle = c2; g.stroke();
+    g.strokeStyle = "rgba(255,235,200,.45)"; g.lineWidth = .025;
+    g.beginPath();
+    [[0,.9],[58,.8],[-58,.8],[115,.6],[-115,.6]].forEach(function(v){
+      var a = v[0]*Math.PI/180; g.moveTo(0, .14); g.lineTo(v[1]*Math.sin(a), -v[1]*Math.cos(a));
+    });
+    g.stroke();
+    g.strokeStyle = c2; g.lineWidth = .06;
+    g.beginPath(); g.moveTo(0, .28); g.lineTo(0, .55); g.stroke();
+    return c;
+  }
+  var spr = [
+    sprite("#ee5240", "#a8231a"), sprite("#f48a35", "#b84a14"), sprite("#f6bd45", "#c07d12"),
+    sprite("#d4402f", "#7e1d14"), sprite("#e86d2c", "#9a3a14")
+  ];
+
+  function size(){
+    var d = Math.min(window.devicePixelRatio || 1, 2), old = pile;
+    W = innerWidth; H = innerHeight; BACK = Math.min(46, H*.055);
+    cv.width = W*d; cv.height = H*d; ctx.setTransform(d, 0, 0, d, 0, 0);
+    pile = document.createElement("canvas"); pile.width = W*d; pile.height = H*d;
+    pctx = pile.getContext("2d"); pctx.setTransform(d, 0, 0, d, 0, 0);
+    if (old) pctx.drawImage(old, 0, 0, W, H);
+  }
+  size(); addEventListener("resize", size);
+
+  // d: 0 = far, 1 = near  -> smaller, slower, fainter when far
+  function mk(init){
+    var d = R();
+    return {
+      x: R()*W, y: init ? R()*H - H*.1 : -30 - R()*H*.4, d: d,
+      s: 9 + d*20, v: (.25 + d*.6)*(.8 + R()*.4), a: .2 + d*.42,
+      ph: R()*6.28, sw: .25 + d*.5, rot: R()*6.28, vr: (R() - .5)*.03,
+      fl: R()*6.28, fv: .02 + R()*.03, img: spr[(R()*spr.length)|0]
+    };
+  }
+  var N = Math.max(45, Math.min(170, Math.round(W/7)));
+  for (var k = 0; k < N; k++) leaves.push(mk(true));
+
+  // pile height at x: k = 0 (front) .. 1 (back)
+  function surf(x, k){
+    var amp = Math.min(9, H*.011), ramp = Math.min(1, lvl/20), ph = k*1.7;
+    return lvl + k*BACK*ramp +
+      (Math.sin(x*.012 + ph) + .6*Math.sin(x*.031 + 1.3 + ph) + .3*Math.sin(x*.07 + .4 + ph))*amp*ramp;
+  }
+  function layer(k, top, bottom){
+    var g = ctx.createLinearGradient(0, H - lvl - k*BACK - 14, 0, H);
+    g.addColorStop(0, top); g.addColorStop(1, bottom);
+    ctx.beginPath(); ctx.moveTo(0, H);
+    for (var x = 0; x <= W + 4; x += 4) ctx.lineTo(x, H - surf(x, k));
+    ctx.lineTo(W, H); ctx.closePath(); ctx.fillStyle = g; ctx.fill();
+  }
+  function stick(L, gy){
+    pctx.save(); pctx.globalAlpha = Math.min(1, L.a + .08);
+    pctx.translate(L.x, gy + L.s*.1); pctx.rotate(R()*6.28); pctx.scale(1, .9);
+    pctx.drawImage(L.img, -L.s*.55, -L.s*.55, L.s*1.1, L.s*1.1); pctx.restore();
+  }
+
+  function tick(t){
+    var ms = Math.min(100, t - last || 16.7); last = t;
+    var dt = ms/16.7; elapsed += ms/1000;
+    lvl = Math.min(C.PILE_MAX*H, C.PILE_PER_MIN*H*elapsed/60);
+    ctx.clearRect(0, 0, W, H);
+
+    // pile: back / mid / front (soft, translucent)
+    if (lvl > .5) {
+      layer(1,  "rgba(246,200,150,.05)", "rgba(214,140,90,.20)");
+      layer(.5, "rgba(244,185,130,.07)", "rgba(200,120,75,.20)");
+      layer(0,  "rgba(238,160,100,.12)", "rgba(160,85,50,.32)");
+    }
+    ctx.drawImage(pile, 0, 0, W, H);
+
+    // leaves: far layer first, then near layer
+    for (var pass = 0; pass < 2; pass++) {
+      for (var i = 0; i < leaves.length; i++) {
+        var L = leaves[i];
+        if ((L.d >= .5 ? 1 : 0) !== pass) continue;
+        L.y += L.v*dt;
+        L.x += (Math.sin(t/1400 + L.ph)*L.sw*.9 + .1 + L.d*.1)*dt;
+        L.rot += L.vr*dt; L.fl += L.fv*dt;
+        if (L.x > W + 20) L.x = -20; else if (L.x < -20) L.x = W + 20;
+        var gy = H - surf(L.x, 1 - L.d);
+        if (L.y + L.s*.3 >= gy) { stick(L, gy); leaves[i] = mk(false); continue; }
+        ctx.save(); ctx.globalAlpha = L.a;
+        ctx.translate(L.x, L.y); ctx.rotate(L.rot);
+        ctx.scale(.35 + .65*Math.abs(Math.cos(L.fl)), 1);
+        ctx.drawImage(L.img, -L.s/2, -L.s/2, L.s, L.s); ctx.restore();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
