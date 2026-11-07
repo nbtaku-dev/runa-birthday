@@ -2,433 +2,255 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>るな誕生日おめでとう！</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Great+Vibes&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthday Present</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap">
 <style>
-:root{
-  color-scheme:light;
-  --ink:#241f2b; --gold:#bfa070; --gold2:#e6d3ae; --maple:#a23a1b; --sub:#a8885a;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --sans:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
-  --cw:clamp(290px,min(25vw,57vh),470px);
-  --vt-left:calc(50% + var(--cw)*.6 + 2vw);
-  box-sizing:border-box;
-}
-*,*::before,*::after{box-sizing:inherit}
-html,body{margin:0}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{overflow-x:hidden;background:#fff;color:var(--ink);font-family:var(--sans);animation:fadein 1.6s var(--ease) both}
-@keyframes fadein{from{opacity:0}to{opacity:1}}
-@keyframes appear{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
-@keyframes ch{to{opacity:1;filter:none;transform:none}}
-@keyframes float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 7px))}}
-@keyframes kin{to{opacity:1}}
-@keyframes glint{0%,14%,100%{box-shadow:inset 0 -16px 20px rgba(230,211,174,0)}7%{box-shadow:inset 0 -16px 20px rgba(230,211,174,.6)}}
+:root{--blue:#00629f;--ink:#24475f;--sub:#7d9bb2;--line:#dbe8f1}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f1f8fd 0%,#fff 30%,#fff 75%,#f4f9fd 100%);min-height:100vh;overflow-x:hidden}
+.en{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:.16em}
+header{position:fixed;top:0;left:0;padding:22px 28px;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--blue);z-index:6;letter-spacing:.14em}
+#snow{position:fixed;inset:0;pointer-events:none;z-index:7}
+.wrap{position:relative;z-index:1}
+.deco{position:absolute;z-index:0;pointer-events:none;overflow:visible}
+.frame{position:relative;z-index:1}
+.frame>svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible}
+svg .fl{fill:#fff}
+svg .ln{fill:none;stroke:var(--blue);stroke-width:2;vector-effect:non-scaling-stroke}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:84px 16px 70px;position:relative;overflow:hidden}
+.script{font-family:"Great Vibes","Brush Script MT",cursive;font-size:clamp(46px,9vw,92px);line-height:1.15;position:relative;z-index:1}
+.date{margin-top:6px;font-size:clamp(18px,2.4vw,24px);color:var(--sub);position:relative;z-index:1}
+.f1{margin-top:44px;padding:70px clamp(34px,6vw,70px) 64px;max-width:100%}
+.piano{display:flex;position:relative;margin:0 auto 26px;padding:12px 12px 16px;background:#fff;border-radius:12px;box-shadow:0 10px 30px #00629f1f;width:fit-content;max-width:100%}
+.w{width:clamp(34px,7.4vw,60px);height:clamp(140px,26vw,210px);background:linear-gradient(#fff,#f6fafd);border:1px solid var(--line);border-radius:0 0 8px 8px;display:block;text-decoration:none;transition:.12s;cursor:pointer}
+.w:hover{background:#e8f4fc}.w:active,.w.on{transform:translateY(2px);background:#d4e9f7}
+.b{position:absolute;top:12px;width:clamp(22px,4.6vw,36px);height:clamp(88px,16vw,130px);background:linear-gradient(#34607f,#1d4766);border-radius:0 0 6px 6px;z-index:2;transition:.12s;cursor:pointer}
+.b:hover{background:#4a7da5}.b:active,.b.on{transform:translateY(2px)}
+.title{font-size:clamp(17px,2.6vw,22px);font-weight:500;letter-spacing:.2em;color:var(--blue)}
+.hint{margin-top:8px;font-size:13px;color:var(--sub);letter-spacing:.15em}
+.card-sec{position:relative;padding:60px 16px 130px;display:flex;justify-content:center;overflow:hidden}
+.f2{max-width:680px;width:100%;padding:90px clamp(34px,8vw,90px) 84px;opacity:0;transform:translateY(24px);transition:1s;text-align:center}
+.f2.show{opacity:1;transform:none}
+.f2 .en{font-size:22px;font-weight:700;color:var(--blue);text-transform:uppercase}
+.f2 h2,.f2 p{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif}
+.f2 h2{font-weight:500;font-size:clamp(19px,3.2vw,24px);letter-spacing:.2em;margin:16px 0 36px;color:var(--blue)}
+.f2 p{font-weight:400;font-size:15px;line-height:2.4;letter-spacing:.14em}
+.f2 p+p{margin-top:1.4em}
+footer{text-align:center;padding-bottom:40px;font-size:13px;color:var(--sub)}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#fff;color:var(--ink);border:1px solid var(--blue);padding:10px 20px;font-size:13px;letter-spacing:.1em;opacity:0;pointer-events:none;transition:.4s;z-index:20}
+#toast.on{opacity:1;transform:translate(-50%,0)}
 
-.stage{position:relative;height:100vh;height:100svh;overflow:visible;overflow-x:clip;z-index:1}
-.in{opacity:0;animation:appear 1.8s var(--ease) var(--dl,0s) forwards}
+/* ===== animations ===== */
+.script{background:linear-gradient(100deg,#00629f 0%,#00629f 40%,#6fb6e6 50%,#00629f 60%,#00629f 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:write 2.6s cubic-bezier(.6,.1,.2,1) .3s both,shine 6s ease-in-out 3s infinite;padding:0 .15em .1em}
+@keyframes write{from{clip-path:inset(-10% 100% -10% 0)}to{clip-path:inset(-10% -5% -10% 0)}}
+@keyframes shine{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.9) rotate(-1.5deg)}to{opacity:1;transform:none}}
+@keyframes drop{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:none}}
+.date{animation:up 1s ease 2.3s both}
+.f1{animation:pop 1.2s cubic-bezier(.2,.8,.2,1) 2.7s both}
+.w,.b{animation:drop .6s cubic-bezier(.2,.9,.3,1.2) backwards;animation-delay:calc(3.2s + var(--i)*.07s)}
+.title{animation:up 1s ease 4.2s both}
+.hint{animation:up 1s ease 4.5s both,blink 2.6s ease-in-out 5.5s infinite}
+@keyframes blink{50%{opacity:.35}}
+.deco{animation:drift 14s ease-in-out infinite alternate}
+.deco:nth-of-type(2){animation-duration:18s;animation-direction:alternate-reverse}
+@keyframes drift{to{transform:translate(18px,-16px) rotate(3deg)}}
+.f1>svg,.f2>svg{transform-origin:center;animation:breathe 9s ease-in-out infinite alternate}
+@keyframes breathe{to{transform:scale(1.015) rotate(.3deg)}}
+.f2 .en,.f2 h2,.f2 p{opacity:0}
+.f2.show .en,.f2.show h2,.f2.show p{animation:up 1s ease both}
+.f2.show h2{animation-delay:.25s}
+.f2.show p:nth-of-type(1){animation-delay:.6s}.f2.show p:nth-of-type(2){animation-delay:1s}
+.f2.show p:nth-of-type(3){animation-delay:1.4s}.f2.show p:nth-of-type(4){animation-delay:1.8s}.f2.show p:nth-of-type(5){animation-delay:2.2s}
+.rise{position:fixed;z-index:9;pointer-events:none;color:var(--blue);font-size:26px;animation:rise 1.6s ease-out forwards}
+@keyframes rise{from{opacity:.9;transform:translate(0,0) scale(.7)}to{opacity:0;transform:translate(var(--dx),-120px) rotate(25deg) scale(1.3)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.f2 .en,.f2 h2,.f2 p{opacity:1}.f2{opacity:1;transform:none}}
 
-/* header / footer chrome */
-.logo{position:absolute;z-index:6;left:2%;top:calc(env(safe-area-inset-top,0px) + 1.6vh);margin:0;
-  font-weight:700;font-size:clamp(30px,3.5vw,60px);letter-spacing:-.02em;line-height:1.1}
-.chips{position:absolute;z-index:6;right:2.2%;top:calc(env(safe-area-inset-top,0px) + 3vh);display:flex;gap:.4em;
-  font-weight:700;font-size:clamp(11px,1.05vw,16px);line-height:1}
-.chips span{padding:.55em 1.1em;border-radius:99px}
-.chips .on{background:var(--ink);color:#fff}
-.foot{position:absolute;z-index:6;right:2.2%;bottom:3.4vh;display:flex;gap:2.2vw;align-items:baseline;font-size:clamp(11px,.95vw,14px)}
-.foot b{font-weight:700}.foot small{color:#c6c1ca;font-size:.8em}
-
-/* tilted cards */
-.card{position:absolute;border-radius:clamp(22px,2.6vw,44px);transform:rotate(-8deg);box-shadow:0 30px 70px rgba(200,160,130,.16)}
-.c-grey{background:#eeecee;box-shadow:none}
-.c-g1{left:36%;top:-14%;width:22%;height:24vh;z-index:1}
-.c-g2{left:43%;bottom:-13vh;width:20%;height:22vh;z-index:1;background:#ebe9ea}
-.c-left{left:-4%;top:5%;width:22%;height:70%;z-index:1;overflow:hidden;background:linear-gradient(160deg,#fff3e2,#fde0c4)}
-.c-red{left:3.5%;bottom:-6%;width:26%;height:28%;z-index:1;overflow:hidden;background:linear-gradient(135deg,#ff5f2d,#e23a1c)}
-.lf{position:absolute;fill:currentColor;stroke:currentColor;stroke-width:.07;stroke-linejoin:round;stroke-linecap:round;overflow:visible;transform:rotate(var(--r,0deg))}
-
-/* floating circles */
-.dot{position:absolute;z-index:2;width:var(--d);height:var(--d);border-radius:50%;overflow:hidden;
-  transform:translate(-50%,-50%);box-shadow:0 38px 60px -18px var(--sh)}
-.dot.in{animation:appear 1.8s var(--ease) var(--dl,0s) forwards, float 9s ease-in-out calc(var(--dl,0s) + 2s) infinite}
-.d1{left:34%;top:18%;--d:clamp(90px,11.6vw,230px);--sh:rgba(240,150,90,.45);background:radial-gradient(circle at 35% 30%,#fff1e0,#f9c59b 75%)}
-.d2{left:27%;top:62%;--d:clamp(60px,7.6vw,150px);--sh:rgba(230,190,90,.45);background:radial-gradient(circle at 35% 30%,#fff8e4,#f3dd9c 80%)}
-.d3{left:77%;top:76%;--d:clamp(130px,15.2vw,300px);--sh:rgba(235,150,160,.4);background:radial-gradient(circle at 35% 25%,#fffafa,#f8dcdc 85%)}
-.dot .lf{width:66%;left:17%;top:16%}
-.script{margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1;
-  font-family:"Great Vibes","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;color:var(--sub);transform:translateY(8px);}
-.script span{font-size:calc(var(--d)*.12)}
-.script b{font-weight:400;font-size:calc(var(--d)*.25);margin-top:.05em}
-
-/* center card with piano */
-.c-center{left:50%;top:50%;z-index:3;width:var(--cw);aspect-ratio:3/4;transform:translate(-50%,-50%) rotate(-8deg);
-  container-type:inline-size;background:linear-gradient(165deg,#fbf4e2,#f4e8cc);box-shadow:0 40px 80px rgba(200,160,110,.22)}
-.c-center::before{content:"";position:absolute;inset:3cqw;border:1px solid var(--gold);border-radius:calc(clamp(22px,2.6vw,44px) - 3cqw);pointer-events:none;opacity:.7}
-.inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6cqw}
-.kb{position:relative;display:flex;width:78cqw;height:34cqw;border-top:3px solid var(--gold);border-radius:3px 3px 0 0}
-.wk{flex:1;position:relative;padding:0;margin:0 0 0 -1px;cursor:pointer;
-  border:1px solid var(--gold2);border-top:none;border-radius:0 0 7px 7px;
-  background:linear-gradient(#fff 0%,#faf6f3 80%,#efe7e2 100%);
-  opacity:0;animation:kin 1.4s var(--ease) forwards, glint 8s ease-in-out infinite;
-  animation-delay:calc(var(--k)*90ms + 2.6s), calc(var(--k)*160ms + 5.5s);
-  transition:background .25s,transform .15s;-webkit-tap-highlight-color:transparent}
-.wk:first-child{margin-left:0}
-.bk{position:absolute;top:0;width:8.57%;height:62%;left:calc(var(--p)*14.2857% - 4.2857%);z-index:2;
-  padding:0;border:0;border-radius:0 0 5px 5px;cursor:pointer;
-  background:linear-gradient(#5e5666,#2f2a35);box-shadow:0 3px 6px rgba(60,50,70,.3);
-  opacity:0;animation:kin 1.4s var(--ease) forwards;animation-delay:calc(var(--p)*90ms + 3s);
-  transition:background .25s,transform .15s;-webkit-tap-highlight-color:transparent}
-.wk.down{background:linear-gradient(#f3e3d8,#ecdccd);transform:translateY(2px)}
-.bk.down{background:linear-gradient(#4a4252,#26212b);transform:translateY(1.5px)}
-.wk:focus-visible,.bk:focus-visible,.go:focus-visible{outline:2px solid var(--gold);outline-offset:3px;z-index:3}
-#lab{margin:0;min-height:1.6em;max-width:88cqw;text-align:center;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
-  font-size:max(11px,4.2cqw);letter-spacing:.12em;color:var(--sub);transition:opacity .3s}
-#lab .ch{--d:4.8s}
-
-/* 追加した文字のアニメーション用スタイル（少し遅れて表示） */
-#sub-guidance{margin:0;min-height:1.4em;max-width:88cqw;text-align:center;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:max(9.5px,3.0cqw);letter-spacing:.08em;color:#c29c66;}
-#sub-guidance .ch{--d:5.4s}
-.go{position:absolute;z-index:4;right:-8.5cqw;top:50%;width:17cqw;aspect-ratio:1;padding:0;border:0;border-radius:50%;cursor:pointer;
-  background:var(--maple);color:#fff;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 28px rgba(162,58,27,.35);transform:translateY(-50%) rotate(8deg);
-  transition:transform .4s var(--ease);-webkit-tap-highlight-color:transparent}
-.go svg{width:42%;height:42%}
-.go:hover{transform:translateY(-50%) rotate(8deg) scale(1.07)}
-.go.down{transform:translateY(-50%) rotate(8deg) scale(.94)}
-
-/* vertical title */
-.vt{position:absolute;z-index:3;left:var(--vt-left);top:50%;transform:translateY(-50%);writing-mode:vertical-rl;display:block}
-.vt h1{margin:0;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:700;
-  font-size:clamp(20px,min(2.5vw,4.4vh),44px);letter-spacing:.12em;line-height:1.3;text-shadow:0 0 10px #fff}
-.vt p{margin:.2em 1em 0 0;font-weight:500;font-size:clamp(9px,.8vw,12px);letter-spacing:.3em;color:#b8b3bd}
-.ch{display:inline-block;opacity:0;filter:blur(5px);transform:translateY(6px);
-  animation:ch 1.8s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + var(--d))}
-.vt h1 .ch{--d:3s}
-#dt .ch{--d:5s}
-
-/* scroll hint */
-.scrollhint{position:absolute;z-index:6;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 2.2vh);transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 14px;border:0;background:none;cursor:pointer;
-  font-family:var(--sans);font-weight:500;font-size:clamp(10px,.8vw,12px);letter-spacing:.3em;color:var(--ink)}
-.scrollhint i{display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:drip 2.4s ease-in-out infinite}
-@keyframes drip{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
-
-/* message card (scroll) */
-.msg{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:clamp(110px,18vh,200px) 18px clamp(72px,12vh,140px);overflow:hidden;background:transparent}
-.m1{left:-9%;top:16%;width:26%;height:44%;z-index:1;overflow:hidden;background:linear-gradient(160deg,#fff3e2,#fde0c4)}
-.m2{right:-7%;bottom:-5%;width:24%;height:40%;z-index:1;background:#eeecee;box-shadow:none}
-.m3{left:88%;top:16%;--d:clamp(80px,10vw,190px);--sh:rgba(240,150,90,.45);background:radial-gradient(circle at 35% 30%,#fff1e0,#f9c59b 75%)}
-.m4{left:11%;top:84%;--d:clamp(56px,6.5vw,120px);--sh:rgba(230,190,90,.45);background:radial-gradient(circle at 35% 30%,#fff8e4,#f3dd9c 80%)}
-.dot.fl{animation:float 9s ease-in-out infinite}
-.mcard{position:relative;z-index:3;width:min(640px,100%);padding:clamp(40px,6vw,68px) clamp(28px,6vw,64px);
-  border-radius:clamp(22px,2.6vw,44px);background:linear-gradient(165deg,#fffdf8,#fbf3e1);
-  box-shadow:0 40px 90px rgba(200,160,110,.22),0 0 0 1px var(--gold2)}
-.mcard::before{content:"";position:absolute;inset:12px;border:1px solid var(--gold);border-radius:calc(clamp(22px,2.6vw,44px) - 10px);opacity:.6;pointer-events:none}
-.mlabel{margin:0;text-align:center;font-family:"Great Vibes","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;
-  font-size:clamp(32px,5vw,46px);line-height:1.1;color:var(--sub)}
-.mcard h2{margin:.2em 0 0;text-align:center;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
-  font-weight:700;font-size:clamp(19px,3.4vw,28px);letter-spacing:.1em;line-height:1.6}
-.morn{display:flex;align-items:center;justify-content:center;gap:12px;margin:1.4em 0 2em}
-.morn i{display:block;height:1px;width:clamp(44px,12vw,90px);background:linear-gradient(90deg,transparent,var(--gold))}
-.morn i:last-child{background:linear-gradient(270deg,transparent,var(--gold))}
-.morn b{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
-.mtext p{margin:0 0 1.8em;font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:500;
-  font-size:clamp(14.5px,calc(12px + .5vw),18px);line-height:2.15;letter-spacing:.06em;color:#3d3544;text-align:center}
-.mtext span{display:inline-block;word-break:auto-phrase;text-wrap:balance}
-.mtext p.mend{margin:2.4em 0 0;text-align:center;font-weight:700;font-size:clamp(15px,2vw,19px);letter-spacing:.14em;color:var(--sub)}
-.rv{opacity:0;transform:translateY(16px);filter:blur(4px);
-  transition:opacity 1.4s var(--ease) var(--rd,0s),transform 1.4s var(--ease) var(--rd,0s),filter 1.4s var(--ease) var(--rd,0s)}
-.rv.show{opacity:1;transform:none;filter:none}
-
-/* leaves */
-#fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:4;pointer-events:none;opacity:0;animation:fadein 3s var(--ease) 1s forwards}
-
-@media (max-aspect-ratio:1/1){
-  :root{--cw:clamp(230px,64vw,340px);--vt-left:calc(5vw + var(--cw)*1.1 + 2vw)}
-  .logo{font-size:clamp(28px,8vw,44px)}
-  .chips{font-size:11px}
-  .c-center{left:calc(5vw + var(--cw)/2);top:49%}
-  .vt{top:49%}
-  .vt h1{font-size:clamp(17px,min(5vw,3.6vh),26px)}
-  .c-left{display:none}
-  .c-g1{left:46vw;top:-9vh;width:50vw;height:19vh}
-  .c-g2{left:50vw;bottom:-9vh;width:46vw;height:19vh}
-  .c-red{left:-12vw;bottom:-6vh;width:58vw;height:25vh}
-  .d1{left:78%;top:15%;--d:26vw}
-  .d2{left:18%;top:16%;--d:17vw}
-  .d3{left:74%;top:86%;--d:38vw}
-  .foot{display:none}
-  .m1{left:-20%;top:12%;width:44%;height:26%}
-  .m2{right:-18%;bottom:-3%;width:46%;height:22%}
-  .m3{left:90%;top:9%;--d:22vw}
-  .m4{left:9%;top:92%;--d:15vw}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important}
-  .in,.wk,.bk{opacity:1;filter:none}
-  .ch{opacity:1;filter:none;transform:none}
-  #fx{display:none}
-  .rv{opacity:1;transform:none;filter:none;transition:none}
-}
+/* ===== ヌオー親子 ===== */
+.mascot{display:flex;justify-content:center;padding:0 16px 10px;position:relative;z-index:1}
+.mascot svg{width:clamp(250px,44vw,400px);height:auto;overflow:visible}
+.q-all{animation:qsway 6s ease-in-out infinite;transform-origin:200px 390px}
+.q-body{animation:qbreath 4s ease-in-out infinite;transform-origin:200px 385px}
+.q-tail{animation:qtail 3s ease-in-out infinite;transform-origin:150px 365px}
+.q-w1{animation:wbob 2.6s ease-in-out infinite;transform-origin:200px 85px}
+.q-w2{animation:wbob 3s ease-in-out -1s infinite;transform-origin:150px 260px}
+.q-w3{animation:wbob 2.8s ease-in-out -.4s infinite;transform-origin:268px 260px}
+.q-mouth{animation:qtalk 2.4s ease-in-out infinite;transform-origin:200px 182px}
+.q-eyes{animation:qblink 5s infinite;transform-origin:200px 150px}
+.q-shadow{animation:qshadow 4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+.q-flower{animation:qfl 3.5s ease-in-out infinite;transform-origin:bottom center;transform-box:fill-box}
+@keyframes qbreath{0%,100%{transform:scale(1,1)}50%{transform:scale(1.012,1.03)}}
+@keyframes qsway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@keyframes qtail{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+@keyframes wbob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+@keyframes qtalk{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.07)}}
+@keyframes qblink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.2)}}
+@keyframes qshadow{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.04)}}
+@keyframes qfl{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.q-bubble{animation:qpop 3.4s ease-in-out infinite;transform-origin:284px 96px}
+@keyframes qpop{0%,100%{transform:scale(1) rotate(-1deg)}50%{transform:scale(1.05) rotate(1.5deg)}}
+.q-bubble text{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;letter-spacing:.08em}
+/* ===== 画像のヌオー ===== */
+.qstage{position:relative;width:clamp(190px,32vw,290px);padding-top:56px}
+.qstage svg{width:100%}
+.qimg{position:relative;transform-origin:50% 100%;animation:qi-breath 3.6s ease-in-out infinite,qi-hop 7s ease-in-out infinite}
+.qimg img{display:block;width:100%;height:auto;animation:qi-sway 5s ease-in-out infinite;transform-origin:50% 100%}
+.qb{position:absolute;width:4.4%;aspect-ratio:1;border-radius:50%;background:#affaff;border-bottom:2px solid #3e4a4f;opacity:0;transform:translate(-50%,-50%);animation:qi-blink 5s infinite}
+.qb.l{left:17.6%;top:20.5%}.qb.r{left:53.9%;top:21.1%}
+@keyframes qi-breath{0%,100%{transform:scale(1,1)}50%{transform:scale(1.012,1.035)}}
+@keyframes qi-sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
+@keyframes qi-hop{0%,86%,100%{translate:0 0}90%{translate:0 -14px}94%{translate:0 0}97%{translate:0 -6px}}
+@keyframes qi-blink{0%,93%,100%{opacity:0}95%,97%{opacity:1}}
+/* ===== ピアノの上から顔を出すヌオー ===== */
+.f1{margin-top:80px}
+.peek{--w:clamp(104px,18vw,150px);position:absolute;z-index:0;left:50%;width:var(--w);top:calc(70px - var(--w)*.62);transform:translateX(-50%);animation:peekin 1.1s cubic-bezier(.2,1.4,.4,1) 4.6s backwards}
+.peek svg{width:100%}
+.piano{z-index:2}
+@keyframes peekin{from{transform:translate(-50%,calc(var(--w)*.7))}to{transform:translateX(-50%)}}
+@keyframes qi-hop{0%,84%,100%{translate:0 0}88%{translate:0 calc(var(--w)*.28)}93%{translate:0 calc(var(--w)*-.06)}97%{translate:0 0}}
+/* ===== メッセージのところのヌメラ ===== */
+.numera{position:absolute;right:clamp(22px,9%,70px);bottom:-24px;width:clamp(64px,11vw,92px);height:auto;z-index:2;transform-origin:50% 100%;animation:nm-squish 3.2s ease-in-out infinite,nm-crawl 9s ease-in-out infinite}
+.numera.err{display:none}
+@keyframes nm-squish{0%,100%{transform:scale(1,1) rotate(0)}25%{transform:scale(1.07,.93) rotate(-2deg)}50%{transform:scale(.95,1.07) rotate(0)}75%{transform:scale(1.05,.95) rotate(2deg)}}
+@keyframes nm-crawl{0%,100%{translate:0 0}50%{translate:-26px 0}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="lp" d="M0 -1L.25 -.433L.806 -.503L.46 -.016L.689 .321L.224 .332L0 .28L-.224 .332L-.689 .321L-.46 -.016L-.806 -.503L-.25 -.433Z M0 .28L0 .62"/></defs></svg>
-<canvas id="fx" aria-hidden="true"></canvas>
-<div class="stage">
-  <p class="logo in" style="--dl:.2s">Birthday present</p>
-  <div class="chips in" style="--dl:.4s" aria-hidden="true"><span class="on">Birthday</span><span>Piano</span></div>
+<header class="en">Birthday Present</header>
+<canvas id="snow"></canvas>
 
-  <div class="card c-grey c-g1 in" style="--dl:.1s"></div>
-  <div class="card c-grey c-g2 in" style="--dl:.2s"></div>
-  <div class="card c-left in" style="--dl:.3s">
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:70%;left:12%;top:8%;color:#fbc58f;--r:18deg"><use href="#lp"/></svg>
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:55%;left:38%;top:42%;color:#ffd9ab;--r:-24deg"><use href="#lp"/></svg>
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:62%;left:4%;top:66%;color:#f6a679;--r:40deg"><use href="#lp"/></svg>
+<main class="wrap">
+<div class="hero">
+  <!-- 背景の線（一部だけ描いた図形） -->
+  <svg class="deco" style="left:-4%;top:60%;width:32%;height:28%" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="ln" opacity=".4" d="M2,14 L98,0 M100,8 L92,62 M88,100 L10,86 M2,14 L5,50"/></svg>
+  <svg class="deco" style="right:-3%;top:10%;width:26%;height:24%" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="ln" opacity=".35" d="M0,6 L60,2 M70,1.5 L94,0 M100,10 L99,88 M8,100 L50,96"/></svg>
+
+  <div class="script" id="t-title"></div>
+  <div class="date en" id="t-date"></div>
+
+  <div class="frame f1">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon class="fl" points="0,9 98,0 100,92 5,100"/>
+      <path class="ln" d="M-2,9.6 L100,-0.4 M100.2,3 L99.4,60 M99.8,76 L100.2,93 M8,100.4 L101,92.2 M0,9 L2.8,64"/>
+    </svg>
+    <div class="peek"><div class="qimg"><img id="q-photo" alt="ヌオー"><i class="qb l"></i><i class="qb r"></i></div>
+    <div id="q-fallback" style="display:none" aria-hidden="true"><svg viewBox="0 0 400 430">
+  <defs>
+    <g id="wooper">
+      <path fill="none" stroke="var(--gc)" stroke-width="3.5" stroke-linecap="round" d="M-22 -5 L-39 -13 M-22 -1 L-41 1 M-22 4 L-37 13 M22 -5 L39 -13 M22 -1 L41 1 M22 4 L37 13"/>
+      <ellipse rx="24" ry="19" style="fill:var(--wc)" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="-9" cy="-5" r="2.5" fill="#4a3428"/><circle cx="9" cy="-5" r="2.5" fill="#4a3428"/>
+      <path d="M-12 3 Q0 21 12 3 Z" fill="#ec8f86" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <ellipse cx="200" cy="405" rx="195" ry="22" fill="#d6ecb0"/>
+  <ellipse class="q-shadow" cx="205" cy="402" rx="120" ry="9" fill="#bcd98f" opacity=".7"/>
+  <g class="q-flower"><path d="M42 392 v-14" stroke="#9cc26e" stroke-width="2"/><circle cx="42" cy="374" r="6" fill="#f4a7b4"/></g>
+  <g class="q-flower"><path d="M360 396 v-16" stroke="#9cc26e" stroke-width="2"/><circle cx="360" cy="376" r="6" fill="#f9c7a0"/></g>
+  <g class="q-all">
+    <g class="q-tail">
+      <path fill="#8fd0f0" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M158 330 C100 312 40 330 34 362 C34 392 110 392 170 372 Z"/>
+      <path fill="none" stroke="#2f4f8f" stroke-width="9" stroke-linecap="round" d="M56 342 C86 326 126 328 152 344"/>
+    </g>
+    <g class="q-body">
+      <path fill="#a9dcf2" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M200 66 C150 66 125 112 122 158 C100 198 95 290 120 346 C145 388 255 388 280 346 C305 290 300 198 278 158 C275 112 250 66 200 66 Z"/>
+      <path fill="#b79be4" d="M126 222 C112 262 118 312 136 342 C152 300 146 250 126 222 Z"/>
+      <g class="q-eyes"><path fill="none" stroke="#4a3428" stroke-width="3.2" stroke-linecap="round" d="M160 152 Q169 142 178 152 M222 152 Q231 142 240 152"/></g>
+      <circle cx="154" cy="172" r="11" fill="#f4a7b4" opacity=".45"/><circle cx="248" cy="172" r="11" fill="#f4a7b4" opacity=".45"/>
+      <circle cx="195" cy="168" r="1.6" fill="#7a5a48"/><circle cx="206" cy="168" r="1.6" fill="#7a5a48"/>
+      <g class="q-mouth"><path fill="#ec8f86" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M156 180 Q200 200 246 178 Q238 226 200 228 Q164 226 156 180 Z"/><ellipse cx="208" cy="216" rx="20" ry="7" fill="#f6aaa0"/></g>
+      <g class="q-w1"><use href="#wooper" x="200" y="46" style="--wc:#c3ecf7;--gc:#b48fe0"/></g>
+      <g class="q-w2"><use href="#wooper" x="150" y="248" style="--wc:#c3ecf7;--gc:#b48fe0"/></g>
+      <g class="q-w3"><use href="#wooper" x="268" y="252" style="--wc:#f8bdd3;--gc:#f0a58a"/></g>
+      <ellipse cx="160" cy="290" rx="44" ry="21" fill="#b4e2f4" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+      <ellipse cx="256" cy="294" rx="44" ry="21" fill="#b4e2f4" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+    <ellipse cx="148" cy="366" rx="32" ry="26" fill="#cdeef8" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="254" cy="366" rx="32" ry="26" fill="#cdeef8" stroke="#7a5a48" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <path fill="none" stroke="#7a5a48" stroke-width="2.2" stroke-linecap="round" d="M138 348 L138 362 M153 346 L153 362 M243 348 L243 362 M258 346 L258 362"/>
+  </g>
+</svg></div></div>
+    <div class="piano" id="piano" aria-label="piano"></div>
+    <div class="title" id="t-sub"></div>
+    <div class="hint" id="t-guide"></div>
   </div>
-  <div class="card c-red in" style="--dl:.5s">
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:34%;left:44%;top:6%;color:#ff8f62;--r:24deg"><use href="#lp"/></svg>
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:28%;left:12%;top:18%;color:#ffc08f;--r:-30deg"><use href="#lp"/></svg>
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:24%;left:70%;top:40%;color:#ffd77a;--r:50deg"><use href="#lp"/></svg>
-  </div>
-
-  <div class="dot d1 in" style="--dl:1s"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e0662b;--r:-14deg"><use href="#lp"/></svg></div>
-  <div class="dot d2 in" style="--dl:1.2s"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e7a92f;--r:22deg"><use href="#lp"/></svg></div>
-  <div class="dot d3 in" style="--dl:1.4s"><p class="script" id="hb"><span>Happy Birthday</span><b>runa</b></p></div>
-
-  <section class="card c-center in" style="--dl:.6s">
-    <div class="inner">
-      <div class="kb" id="kb" role="group" aria-label="鍵盤を押すと音源をダウンロード" title="鍵盤を押すと音源をダウンロード">
-        <button type="button" class="wk" style="--k:0" data-f="261.63" aria-label="ド"></button>
-        <button type="button" class="wk" style="--k:1" data-f="293.66" aria-label="レ"></button>
-        <button type="button" class="wk" style="--k:2" data-f="329.63" aria-label="ミ"></button>
-        <button type="button" class="wk" style="--k:3" data-f="349.23" aria-label="ファ"></button>
-        <button type="button" class="wk" style="--k:4" data-f="392.00" aria-label="ソ"></button>
-        <button type="button" class="wk" style="--k:5" data-f="440.00" aria-label="ラ"></button>
-        <button type="button" class="wk" style="--k:6" data-f="493.88" aria-label="シ"></button>
-        <button type="button" class="bk" style="--p:1" data-f="277.18" aria-label="ド＃"></button>
-        <button type="button" class="bk" style="--p:2" data-f="311.13" aria-label="レ＃"></button>
-        <button type="button" class="bk" style="--p:4" data-f="369.99" aria-label="ファ＃"></button>
-        <button type="button" class="bk" style="--p:5" data-f="415.30" aria-label="ソ＃"></button>
-        <button type="button" class="bk" style="--p:6" data-f="466.16" aria-label="ラ＃"></button>
-      </div>
-      <div>
-        <p id="lab">生命の奇跡Birthday Ver.</p>
-        <p id="sub-guidance">（鍵盤クリックしてみて）</p>
-      </div>
-    </div>
-    <button type="button" class="go" id="go" data-f="392.00" aria-label="音源をダウンロード">
-  </button>
-  </section>
-
-  <div class="vt"><h1 id="t1">るな誕生日おめでとう！</h1><p id="dt">2026/11/15</p></div>
-  <p class="foot in" style="--dl:1.6s"><b></b><small>© 2026 runa</small></p>
-  <button type="button" class="scrollhint in" id="sh" style="--dl:6s" aria-label="メッセージカードへスクロール"><span></span><i></i></button>
 </div>
 
-<section class="msg" id="message" aria-label="メッセージカード">
-  <div class="card m1" aria-hidden="true">
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:70%;left:14%;top:10%;color:#fbc58f;--r:-16deg"><use href="#lp"/></svg>
-    <svg class="lf" viewBox="-1 -1.1 2 1.8" style="width:52%;left:40%;top:56%;color:#f6a679;--r:34deg"><use href="#lp"/></svg>
+<section class="card-sec">
+  <div class="frame f2" id="card">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon class="fl" points="3,0 100,6 96,100 0,92"/>
+      <path class="ln" d="M-1,-0.2 L58,3.3 M67,3.9 L101,6.2 M100.2,5 L96.6,100.4 M-1,91.8 L96,100.4 M3,-2 L0.6,68"/>
+    </svg>
+    <div class="en">Message</div>
+    <h2>21歳のお誕生日おめでとう</h2>
+    <p>今回ピアノでカバーした曲「生命（いのち）の奇跡」は元々、英国の少年合唱団リベラ（Libera）の曲で「すべてが生命の奇跡の中に」という意味が込められています。</p>
+    <p>るなが生まれてきてくれて、自分と今こうして一緒にいてくれることに感謝してこの曲を選びました。</p>
+    <p>自分が作る音色が大好きだって言ってくれたことがすごく嬉しくて、るなに聴かせるようになってからピアノがもっと好きになりました。</p>
+    <p>いつまでも好きって言ってもらえるように頑張ります。</p>
+    <p>これからもよろしくね。</p>
+    <img class="numera" id="numera" alt="" aria-hidden="true">
   </div>
-  <div class="card m2" aria-hidden="true"></div>
-  <div class="dot m3 fl" aria-hidden="true"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e0662b;--r:16deg"><use href="#lp"/></svg></div>
-  <div class="dot m4 fl" aria-hidden="true"><svg class="lf" viewBox="-1 -1.1 2 1.8" style="color:#e7a92f;--r:-20deg"><use href="#lp"/></svg></div>
-
-  <article class="mcard rv">
-    <p class="mlabel rv">Message</p>
-    <h2 class="rv">21歳のお誕生日おめでとう</h2>
-    <div class="morn rv" aria-hidden="true"><i></i><b></b><i></i></div>
-    <div class="mtext">
-      <p class="rv"><span>今回ピアノでカバーした曲「生命（いのち）の奇跡」は元々、英国の少年合唱団リベラ（Libera）の曲で「すべてが生命の奇跡の中に」という意味が込められています。</span></p>
-      <p class="rv"><span>るなが生まれてきてくれて、自分と今こうして一緒にいてくれることに感謝してこの曲を選びました。</span></p>
-      <p class="rv"><span>自分が作る音色が大好きだって言ってくれたことがすごく嬉しくて、るなに聴かせるようになってからピアノがもっと好きになりました。</span></p>
-      <p class="rv"><span>いつまでも好きって言ってもらえるように頑張ります。</span></p>
-      <p class="rv">これからもよろしくね。</p>
-    </div>
-  </article>
 </section>
+</main>
+<footer class="en">Happy Birthday Runa</footer>
+<div id="toast"></div>
 
-<!-- ============================================================
-     ★ 設定（ここだけ書き換えればOK）
-     ★ 音源を差し替える／追加するときは AUDIO_FILE と AUDIO_NAME を変更
-     ============================================================ -->
 <script>
+/* ============================================================
+   ★ ここだけ編集すればOK ★
+   ============================================================ */
 var CONFIG = {
-  TITLE:        "るな誕生日おめでとう！",      // 上の文字
-  SUBTITLE:     "生命の奇跡Birthday Ver.",         // 鍵盤の下の文字
-  GUIDANCE:     "（鍵盤クリックしてみて）",    // 追加した文字
+  TITLE:        "Happy Birthday Runa",            // 一番上の筆記体の文字
+  SUBTITLE:     "生命の奇跡 Birthday Ver.",        // 鍵盤の下の文字
+  GUIDANCE:     "（鍵盤クリックしてみて）",         // その下の文字
   DATE:         "2026/11/15",                     // タイトルの下の日付
-  AUDIO_FILE:   "./song of life (Libera).mp3",                  // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
-  AUDIO_NAME:   "song of life (Libera).mp3",                  // ★ダウンロード時に付くファイル名
+  NUMERA_IMAGE: "./numera.png",                   // メッセージ下の小さなヌメラ画像（このHTMLと同じフォルダに置く）
+  MASCOT_IMAGE: "./quagsire.png",                  // ヌオー画像のパス（このHTMLと同じフォルダに置く）。読み込めない時は描いたイラストを表示
+  AUDIO_FILE:   "./song of life (Libera).mp3",    // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
+  AUDIO_NAME:   "song of life (Libera).mp3",      // ★ダウンロード時に付くファイル名
 };
-</script>
+document.getElementById("t-title").textContent=CONFIG.TITLE;
+document.getElementById("t-date").textContent=CONFIG.DATE;
+document.getElementById("t-sub").textContent=CONFIG.SUBTITLE;
+document.getElementById("t-guide").textContent=CONFIG.GUIDANCE;
+document.title=CONFIG.TITLE;
+(function(){const n=document.getElementById("numera");n.onerror=()=>n.classList.add("err");n.src=encodeURI(CONFIG.NUMERA_IMAGE||"./numera.png");})();
+(function(){const im=document.getElementById("q-photo");
+  im.onerror=()=>{document.querySelector(".qimg").style.display="none";document.getElementById("q-fallback").style.display="block"};
+  im.src=encodeURI(CONFIG.MASCOT_IMAGE||"./quagsire.png");})();
 
-<script>
-(function(){
-  var C = CONFIG, R = Math.random;
+const NOTES=[{f:"C",w:1},{f:"Cs"},{f:"D",w:1},{f:"Ds"},{f:"E",w:1},{f:"F",w:1},{f:"Fs"},{f:"G",w:1},{f:"Gs"},{f:"A",w:1},{f:"As"},{f:"B",w:1}];
+const FREQ={C:261.63,Cs:277.18,D:293.66,Ds:311.13,E:329.63,F:349.23,Fs:369.99,G:392,Gs:415.3,A:440,As:466.16,B:493.88};
+const piano=document.getElementById("piano"),toast=document.getElementById("toast");let ctx,wi=0,tt;
+function tone(n){try{ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.type="triangle";o.frequency.value=FREQ[n];g.gain.setValueAtTime(.25,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+1.2);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+1.2)}catch(e){}}
+function say(t){toast.textContent=t;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),2400)}
+function download(){
+  const a=document.createElement("a");
+  a.href=encodeURI(CONFIG.AUDIO_FILE);a.download=CONFIG.AUDIO_NAME;
+  document.body.appendChild(a);a.click();a.remove();
+  say("ダウンロードします ♪");
+}
+NOTES.forEach(n=>{const a=document.createElement("a");a.style.setProperty("--i",NOTES.indexOf(n));a.setAttribute("role","button");a.tabIndex=0;
+const go=e=>{tone(n.f);burst(e.clientX||innerWidth/2,e.clientY||innerHeight/2);a.classList.add("on");setTimeout(()=>a.classList.remove("on"),200);download()};
+a.addEventListener("click",go);a.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go(e)}});
+if(n.w){a.className="w";a.setAttribute("aria-label",n.f);piano.appendChild(a);wi++}else{a.className="b";a.dataset.after=wi;a.setAttribute("aria-label",n.f.replace("s","#"));piano.appendChild(a)}});
+function burst(x,y){for(let i=0;i<3;i++){const r=document.createElement("span");r.className="rise";r.textContent=["♪","♫","♬","♩"][Math.random()*4|0];r.style.left=(x-8+Math.random()*16)+"px";r.style.top=y+"px";r.style.setProperty("--dx",(Math.random()*80-40)+"px");r.style.animationDelay=(i*.12)+"s";document.body.appendChild(r);setTimeout(()=>r.remove(),2000)}}
+function layout(){const w=piano.querySelector(".w"),b=piano.querySelector(".b");const ww=w.getBoundingClientRect().width,bw=b.getBoundingClientRect().width;piano.querySelectorAll(".b").forEach(x=>{x.style.left=(12+ww*x.dataset.after-bw/2)+"px"})}
+addEventListener("resize",layout);layout();
+new IntersectionObserver((e,o)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("show");o.unobserve(x.target)}}),{threshold:.15}).observe(document.getElementById("card"));
 
-  /* ---------- text ---------- */
-  function split(id, text){
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.textContent = ""; el.setAttribute("aria-label", text);
-    Array.from(text).forEach(function(ch, i){
-      var s = document.createElement("span");
-      s.className = "ch"; s.style.setProperty("--i", i);
-      s.setAttribute("aria-hidden", "true"); s.textContent = ch;
-      el.appendChild(s);
-    });
-  }
-  split("t1", C.TITLE); split("dt", C.DATE); split("lab", C.SUBTITLE); split("sub-guidance", C.GUIDANCE);
-  document.title = C.TITLE;
-
-  /* ---------- piano keys ---------- */
-  var kb = document.getElementById("kb"), lab = document.getElementById("lab"), tm, lastDl = 0, ac;
-
-  function tone(f){
-    try{
-      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
-      var n = ac.currentTime, g = ac.createGain();
-      g.gain.setValueAtTime(.0001, n);
-      g.gain.exponentialRampToValueAtTime(.12, n + .01);
-      g.gain.exponentialRampToValueAtTime(.0001, n + 1.6);
-      g.connect(ac.destination);
-      [["triangle", f, 1], ["sine", f*2, .35]].forEach(function(p){
-        var o = ac.createOscillator(), v = ac.createGain();
-        o.type = p[0]; o.frequency.value = p[1]; v.gain.value = p[2];
-        o.connect(v); v.connect(g); o.start(n); o.stop(n + 1.7);
-      });
-    }catch(e){}
-  }
-  function say(msg){
-    clearTimeout(tm); lab.style.opacity = 0;
-    setTimeout(function(){ lab.textContent = msg; lab.style.opacity = 1; }, 300);
-    tm = setTimeout(function(){
-      lab.style.opacity = 0;
-      setTimeout(function(){ lab.textContent = C.SUBTITLE; lab.style.opacity = 1; }, 300);
-    }, 3600);
-  }
-  function press(b){
-    tone(+b.dataset.f); b.classList.add("down");
-    var now = Date.now(); if (now - lastDl < 4000) return; lastDl = now;   // 連打でも4秒に1回だけ保存
-    if (!C.AUDIO_FILE) { say("音源ファイルが未設定です"); return; }
-    var a = document.createElement("a");
-    a.href = C.AUDIO_FILE; a.download = C.AUDIO_NAME || "";
-    document.body.appendChild(a); a.click(); a.remove();
-    say("ダウンロードを開始しました");
-  }
-  function releaseAll(){ kb.querySelectorAll(".down").forEach(function(b){ b.classList.remove("down"); }); }
-  kb.addEventListener("pointerdown", function(e){ var b = e.target.closest("button"); if (b) { e.preventDefault(); press(b); } });
-  kb.addEventListener("keydown", function(e){
-    var b = e.target.closest("button");
-    if (b && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); if (!e.repeat) press(b); }
-  });
-  kb.addEventListener("keyup", releaseAll);
-  kb.addEventListener("click", function(e){ e.preventDefault(); });
-  var go = document.getElementById("go");
-  go.addEventListener("click", function(){ press(go); setTimeout(function(){ go.classList.remove("down"); }, 220); });
-  document.addEventListener("pointerup", releaseAll);
-  document.addEventListener("pointercancel", releaseAll);
-
-  /* ---------- message card (scroll) ---------- */
-  var sh = document.getElementById("sh");
-  if (sh) sh.addEventListener("click", function(){
-    var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById("message").scrollIntoView({behavior: calm ? "auto" : "smooth", block: "start"});
-  });
-  var rv = document.querySelectorAll(".rv");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } });
-    }, {threshold: .15});
-    rv.forEach(function(el, i){ el.style.setProperty("--rd", (i % 5)*.12 + "s"); io.observe(el); });
-  } else {
-    rv.forEach(function(el){ el.classList.add("show"); });
-  }
-
-  /* ---------- autumn leaves (depth layers) ---------- */
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  var cv = document.getElementById("fx"), ctx = cv.getContext("2d");
-  var W, H, leaves = [], last = 0;
-
-  function sprite(c1, c2){
-    var S = 64, c = document.createElement("canvas"); c.width = c.height = S;
-    var g = c.getContext("2d");
-    var pts = [[0,1],[30,.5],[58,.95],[88,.46],[115,.76],[146,.4],[180,.28]], poly = [];
-    pts.forEach(function(p){ var a = p[0]*Math.PI/180; poly.push([p[1]*Math.sin(a), -p[1]*Math.cos(a)]); });
-    for (var i = pts.length - 2; i > 0; i--) poly.push([-poly[i][0], poly[i][1]]);
-    g.translate(S/2, S/2); g.scale(S*.46, S*.46); g.translate(0, .36);
-    g.beginPath();
-    poly.forEach(function(p, i){ i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]); });
-    g.closePath();
-    var gr = g.createRadialGradient(0, -.2, .05, 0, -.2, 1.5);
-    gr.addColorStop(0, c1); gr.addColorStop(1, c2);
-    g.fillStyle = gr; g.fill();
-    g.strokeStyle = "rgba(255,235,200,.45)"; g.lineWidth = .025;
-    g.beginPath();
-    [[0,.9],[58,.8],[-58,.8],[115,.6],[-115,.6]].forEach(function(v){
-      var a = v[0]*Math.PI/180; g.moveTo(0, .14); g.lineTo(v[1]*Math.sin(a), -v[1]*Math.cos(a));
-    });
-    g.stroke();
-    g.strokeStyle = c2; g.lineWidth = .06;
-    g.beginPath(); g.moveTo(0, .28); g.lineTo(0, .55); g.stroke();
-    return c;
-  }
-  var spr = [
-    sprite("#ee5240", "#a8231a"), sprite("#f48a35", "#b84a14"), sprite("#f6bd45", "#c07d12"),
-    sprite("#d4402f", "#7e1d14"), sprite("#e86d2c", "#9a3a14")
-  ];
-
-  function size(){
-    var d = Math.min(window.devicePixelRatio || 1, 2);
-    W = innerWidth; H = innerHeight;
-    cv.width = W*d; cv.height = H*d; ctx.setTransform(d, 0, 0, d, 0, 0);
-  }
-  size(); addEventListener("resize", size);
-
-  // d: 0 = far, 1 = near  -> smaller, slower, fainter when far
-  function mk(init){
-    var d = R();
-    return {
-      x: R()*W, y: init ? R()*H - H*.1 : -30 - R()*H*.4, d: d,
-      s: 9 + d*20, v: (.25 + d*.6)*(.8 + R()*.4), a: .2 + d*.42,
-      ph: R()*6.28, sw: .25 + d*.5, rot: R()*6.28, vr: (R() - .5)*.03,
-      fl: R()*6.28, fv: .02 + R()*.03, img: spr[(R()*spr.length)|0]
-    };
-  }
-  var N = Math.max(45, Math.min(170, Math.round(W/7)));
-  for (var k = 0; k < N; k++) leaves.push(mk(true));
-
-  function tick(t){
-    var ms = Math.min(100, t - last || 16.7); last = t;
-    var dt = ms/16.7;
-    ctx.clearRect(0, 0, W, H);
-
-    // leaves: far layer first, then near layer
-    for (var pass = 0; pass < 2; pass++) {
-      for (var i = 0; i < leaves.length; i++) {
-        var L = leaves[i];
-        if ((L.d >= .5 ? 1 : 0) !== pass) continue;
-        L.y += L.v*dt;
-        L.x += (Math.sin(t/1400 + L.ph)*L.sw*.9 + .1 + L.d*.1)*dt;
-        L.rot += L.vr*dt; L.fl += L.fv*dt;
-        if (L.x > W + 20) L.x = -20; else if (L.x < -20) L.x = W + 20;
-        if (L.y - L.s > H) { leaves[i] = mk(false); continue; }
-        ctx.save(); ctx.globalAlpha = L.a;
-        ctx.translate(L.x, L.y); ctx.rotate(L.rot);
-        ctx.scale(.35 + .65*Math.abs(Math.cos(L.fl)), 1);
-        ctx.drawImage(L.img, -L.s/2, -L.s/2, L.s, L.s); ctx.restore();
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
+// 小さな雪の結晶
+const cv=document.getElementById("snow"),c=cv.getContext("2d");let W,H,flakes=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener("resize",rs);
+for(let i=0;i<55;i++)flakes.push({x:Math.random()*W,y:Math.random()*H,r:2+Math.random()*3.5,v:.35+Math.random()*.8,d:Math.random()*6,a:Math.random()*6,s:(Math.random()-.5)*.02});
+function flake(f){c.save();c.translate(f.x,f.y);c.rotate(f.a);c.strokeStyle="rgba(120,175,215,.85)";c.lineWidth=1;c.beginPath();
+for(let k=0;k<3;k++){const t=k*Math.PI/3,dx=Math.cos(t)*f.r,dy=Math.sin(t)*f.r;c.moveTo(-dx,-dy);c.lineTo(dx,dy)}c.stroke();c.restore()}
+(function loop(){c.clearRect(0,0,W,H);flakes.forEach(f=>{f.y+=f.v;f.d+=.015;f.x+=Math.sin(f.d)*.4;f.a+=f.s;if(f.y>H+8){f.y=-8;f.x=Math.random()*W}flake(f)});requestAnimationFrame(loop)})();
 </script>
 </body>
 </html>
