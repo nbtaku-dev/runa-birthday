@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>るなの誕生日おめでとう！</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme: light;
@@ -32,6 +32,9 @@ h1{margin:0;font-size:clamp(21px,5.6vw,38px);letter-spacing:.14em;line-height:1.
 .ch{display:inline-block;opacity:0;filter:blur(5px);transform:translateY(6px);
   animation:ch 1.8s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + var(--d))}
 h1 .ch{--d:3s}
+.script{margin:calc(-1 * clamp(8px,2vh,18px)) 0 0;font-family:"Great Vibes","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;font-size:clamp(28px,8vw,48px);line-height:1.2;font-weight:400;letter-spacing:.02em;color:#a8885a;text-shadow:0 0 10px #fff;opacity:0;filter:blur(5px);transform:translateY(6px);animation:ch 2.4s var(--ease) 4.2s forwards}
+.date{margin:calc(-1 * clamp(6px,1.5vh,14px)) 0 0;font-size:clamp(14px,3.6vw,20px);letter-spacing:.3em;color:#a8885a;text-shadow:0 0 10px #fff}
+#dt .ch{--d:6s}
 #lab .ch{--d:4.8s}
 @keyframes ch{to{opacity:1;filter:none;transform:none}}
 
@@ -85,7 +88,7 @@ h1 .ch{--d:3s}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important}
-  .ch,.card,.card::before,.card::after,.wk,.bk{opacity:1;filter:none;transform:none}
+  .ch,.script,.card,.card::before,.card::after,.wk,.bk{opacity:1;filter:none;transform:none}
   .card::before{inset:-10px}.card::after{inset:-1px}
   .orn i{width:80px}.orn b{transform:rotate(45deg)}
   #fx{display:none}
@@ -96,6 +99,8 @@ h1 .ch{--d:3s}
 <canvas id="fx" aria-hidden="true"></canvas>
 <main>
   <h1 id="t1">るなの誕生日おめでとう！</h1>
+  <p id="hb" class="script">Happy Birthday runa</p>
+  <p id="dt" class="date">2026/11/15</p>
   <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
   <div class="card">
     <div class="kb" id="kb" role="group" aria-label="鍵盤を押すと音源をダウンロード" title="鍵盤を押すと音源をダウンロード">
@@ -124,6 +129,7 @@ h1 .ch{--d:3s}
 var CONFIG = {
   TITLE:        "るなの誕生日おめでとう！",     // 上の文字
   SUBTITLE:     "生命の奇跡Birthday Ver.",       // 鍵盤の下の文字
+  DATE:         "2026/11/15",                    // タイトルの下の日付
   AUDIO_FILE:   "./グット・ドクター(アレンジ).m4a",                  // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
   AUDIO_NAME:   "グット・ドクター(アレンジ).m4a",                  // ★ダウンロード時に付くファイル名
   PILE_PER_MIN: 0.05,                            // 1分で画面の何割まで積もるか（0.05 = 2分で1割）
@@ -146,7 +152,7 @@ var CONFIG = {
       el.appendChild(s);
     });
   }
-  split("t1", C.TITLE); split("lab", C.SUBTITLE);
+  split("t1", C.TITLE); split("dt", C.DATE); split("lab", C.SUBTITLE);
   document.title = C.TITLE;
 
   /* ---------- piano keys ---------- */
