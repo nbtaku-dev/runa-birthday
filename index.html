@@ -2,8 +2,6 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-   <title>Present for you</title>
-</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Birthday Present</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap">
@@ -128,9 +126,58 @@ footer{text-align:center;padding-bottom:40px;font-size:13px;color:var(--sub)}
   .f2 p+p{margin-top:1.7em}
   .numera{width:54px;bottom:-18px;right:20px}
 }
+/* ===== オープニング：封蝋のメッセージカード ===== */
+body.pre{overflow:hidden;height:100vh}
+html:has(body.pre){overflow:hidden}
+body.pre .wrap,body.pre .wrap *,body.pre header{animation-play-state:paused!important}
+body.opened .wrap{animation:siteIn 1.4s ease both}
+@keyframes siteIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.intro{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fff 0%,#eaf4fb 85%);transition:opacity 1.1s ease}
+.intro.reveal{opacity:0;pointer-events:none}
+.intro-in{display:flex;flex-direction:column;align-items:center}
+.env{position:relative;width:min(84vw,400px);aspect-ratio:1.55;perspective:900px;filter:drop-shadow(0 18px 28px #00629f33);animation:envin 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes envin{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.env>*{position:absolute}
+.env-back{inset:0;background:#e1eff9;border-radius:3px}
+.env-card{left:6%;right:6%;top:8%;bottom:6%;background:#fff;border:1.5px solid #cfe0ec;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:9%;gap:4px;z-index:2}
+.ec-script{font-family:"Great Vibes","Brush Script MT",cursive;font-size:clamp(26px,7vw,36px);color:var(--blue);line-height:1.2;text-align:center}
+.ec-sub{font-size:13px;color:var(--sub)}
+.env-front{inset:0;background:linear-gradient(#f6fbff,#e9f4fb);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);z-index:3}
+.env-flap{left:0;right:0;top:0;height:58%;background:#f1f8fd;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;z-index:5}
+.env-lines{inset:0;width:100%;height:100%;z-index:6;pointer-events:none;overflow:visible}
+.env-lines path{fill:none;stroke:var(--blue);stroke-width:1.8;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.seal{left:50%;top:58%;width:clamp(56px,17%,70px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:7;border:0;cursor:pointer;border-radius:50% 46% 52% 48%/48% 53% 47% 51%;background:radial-gradient(circle at 35% 30%,#3a8fc7,#00629f 45%,#003f6b 100%);box-shadow:0 4px 8px #00294a66,inset 0 2px 3px #7cc0ea88,inset 0 -3px 5px #00294a99;color:#d5ebf9;font-size:26px;display:grid;place-items:center;animation:sealpulse 2.4s ease-in-out infinite}
+.seal::before{content:"";position:absolute;inset:9px;border-radius:50%;border:1.5px solid #8cc4e8aa;box-shadow:inset 0 1px 2px #00294a99,0 1px 1px #5fa9d655}
+.seal::after{content:"";position:absolute;width:26%;aspect-ratio:1;right:-5%;bottom:3%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2f86c0,#00629f 60%,#003f6b);box-shadow:-34px 8px 0 -3px #00629f}
+.seal span{position:relative;text-shadow:0 -1px 1px #00294a}
+@keyframes sealpulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.07)}}
+.intro-hint{margin-top:34px;color:var(--sub);font-size:13px;letter-spacing:.2em;text-align:center;animation:blink 2.6s ease-in-out 1.4s infinite;transition:opacity .3s}
+.intro.open .intro-hint{opacity:0;animation:none}
+.intro.open .seal{animation:sealbreak .6s ease-in forwards;pointer-events:none}
+@keyframes sealbreak{0%{transform:translate(-50%,-50%) scale(1)}30%{transform:translate(-50%,-50%) scale(1.2) rotate(-6deg)}100%{transform:translate(-50%,-25%) scale(.55) rotate(22deg);opacity:0}}
+.intro.open .env-flap{animation:flapopen .8s ease-in-out .35s forwards}
+@keyframes flapopen{0%{transform:rotateX(0);z-index:5;background:#f1f8fd}49%{transform:rotateX(-90deg);z-index:5;background:#f1f8fd}50%{z-index:1;background:#d3e6f3}100%{transform:rotateX(-180deg);z-index:1;background:#d3e6f3}}
+.intro.open .env-card{animation:cardup .9s cubic-bezier(.3,.8,.3,1) 1s forwards}
+@keyframes cardup{to{transform:translateY(-58%)}}
+.intro.reveal .env-card{z-index:9;animation:cardbig 1.2s cubic-bezier(.5,0,.9,.4) forwards}
+@keyframes cardbig{from{transform:translateY(-58%) scale(1)}to{transform:translateY(-58%) scale(16)}}
+.intro.reveal .env-card>*{opacity:0;transition:opacity .35s}
 </style>
 </head>
-<body>
+<body class="pre">
+<div class="intro" id="intro">
+  <div class="intro-in">
+    <div class="env">
+      <div class="env-back"></div>
+      <div class="env-card"><div class="ec-script" id="i-title"></div><div class="ec-sub en" id="i-date"></div></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <svg class="env-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0 H100 V100 H0 Z M0 0 L50 58 L100 0"/></svg>
+      <button class="seal" id="seal" aria-label="開く"><span>♪</span></button>
+    </div>
+    <div class="intro-hint" id="i-hint"></div>
+  </div>
+</div>
 <header class="en">Birthday Present</header>
 <canvas id="snow"></canvas>
 
@@ -221,7 +268,8 @@ var CONFIG = {
   TITLE:        "Happy Birthday Runa",            // 一番上の筆記体の文字
   SUBTITLE:     "生命の奇跡 Birthday Ver.",        // 鍵盤の下の文字
   GUIDANCE:     "（鍵盤クリックしてみて）",         // その下の文字
-  DATE:         "2026/11/15",                     // タイトルの下の日付
+  DATE:         "2026/11/15",
+  INTRO_HINT:   "（封蝋をクリックして開く）",        // オープニングの案内文                     // タイトルの下の日付
   NUMERA_IMAGE: "./numera.png",                   // メッセージ下の小さなヌメラ画像（このHTMLと同じフォルダに置く）
   MASCOT_IMAGE: "./quagsire.png",                  // ヌオー画像のパス（このHTMLと同じフォルダに置く）。読み込めない時は描いたイラストを表示
   AUDIO_FILE:   "./song of life (Libera).mp3",    // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
@@ -232,6 +280,15 @@ document.getElementById("t-date").textContent=CONFIG.DATE;
 document.getElementById("t-sub").textContent=CONFIG.SUBTITLE;
 document.getElementById("t-guide").textContent=CONFIG.GUIDANCE;
 document.title=CONFIG.TITLE;
+document.getElementById("i-title").textContent=CONFIG.TITLE;
+document.getElementById("i-date").textContent=CONFIG.DATE;
+document.getElementById("i-hint").textContent=CONFIG.INTRO_HINT;
+(function(){const intro=document.getElementById("intro"),seal=document.getElementById("seal");
+  function openIt(){if(intro.classList.contains("open"))return;intro.classList.add("open");
+    setTimeout(()=>intro.classList.add("reveal"),2150);
+    setTimeout(()=>{document.body.classList.remove("pre");document.body.classList.add("opened")},2350);
+    setTimeout(()=>intro.remove(),3700)}
+  seal.addEventListener("click",openIt);intro.querySelector(".env").addEventListener("click",openIt);})();
 (function(){const n=document.getElementById("numera");n.onerror=()=>n.classList.add("err");n.src=encodeURI(CONFIG.NUMERA_IMAGE||"./numera.png");})();
 (function(){const im=document.getElementById("q-photo");
   im.onerror=()=>{document.querySelector(".qimg").style.display="none";document.getElementById("q-fallback").style.display="block"};
