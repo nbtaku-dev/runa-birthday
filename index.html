@@ -270,6 +270,8 @@ var CONFIG = {
   GUIDANCE:     "（鍵盤クリックしてみて）",         // その下の文字
   DATE:         "2026/11/15",
   INTRO_HINT:   "（封蝋をクリックして開く）",        // オープニングの案内文                     // タイトルの下の日付
+  OP_AUDIO:     "./OP.mp3",                       // ★封蝋を開いたときに流す音源（このHTMLと同じフォルダに置く）
+  OP_DELAY:     2700,                             // ★音が鳴り始めるまでの遅れ（ミリ秒。1000＝1秒。0なら封蝋を押してすぐ）
   NUMERA_IMAGE: "./numera.png",                   // メッセージ下の小さなヌメラ画像（このHTMLと同じフォルダに置く）
   MASCOT_IMAGE: "./quagsire.png",                  // ヌオー画像のパス（このHTMLと同じフォルダに置く）。読み込めない時は描いたイラストを表示
   AUDIO_FILE:   "./song of life (Libera).mp3",    // ★音源ファイルのパス（このHTMLと同じフォルダに置く）
@@ -285,6 +287,7 @@ document.getElementById("i-date").textContent=CONFIG.DATE;
 document.getElementById("i-hint").textContent=CONFIG.INTRO_HINT;
 (function(){const intro=document.getElementById("intro"),seal=document.getElementById("seal");
   function openIt(){if(intro.classList.contains("open"))return;intro.classList.add("open");
+    try{window.__op=new Audio(encodeURI(CONFIG.OP_AUDIO||"./OP.mp3"));window.__op.preload="auto";setTimeout(()=>{window.__op.play().catch(()=>{})},CONFIG.OP_DELAY||0)}catch(e){}
     setTimeout(()=>intro.classList.add("reveal"),2150);
     setTimeout(()=>{document.body.classList.remove("pre");document.body.classList.add("opened")},2350);
     setTimeout(()=>intro.remove(),3700)}
